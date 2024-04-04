@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
         val countdownStartButton = findViewById<Button>(R.id.countdownButton)
 
         val intent = Intent(this, CountdownService::class.java)
-            .putExtra(COUNTDOWN_START_VALUE, countdownValue.text.toString().toInt())
 
         countdownStartButton.setOnClickListener {
-            startService(intent)
+            startService(Intent(this, CountdownService::class.java)
+                .putExtra(COUNTDOWN_START_VALUE, countdownValue.text.toString().toInt()))
         }
 
     }

@@ -17,10 +17,14 @@ class CountdownService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
-        CoroutineScope(Dispatchers.IO).launch {
-            repeat(10) {
-                Log.d("Countdown", (10 - it).toString())
-                delay(1000)
+        intent?.run {
+            val from = getIntExtra(COUNTDOWN_START_VALUE, 0)
+
+            CoroutineScope(Dispatchers.IO).launch {
+                repeat(from) {
+                    Log.d("Countdown", (from - it).toString())
+                    delay(1000)
+                }
             }
         }
 
