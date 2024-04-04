@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "edu.temple.startserviceinclassactivity"
-        minSdk = 34
+        minSdk = 33
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
